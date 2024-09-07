@@ -1,5 +1,5 @@
 # Variable: For Resource Group
-variable "rg_Security_Group" {
+variable "rg_security_group" {
   type = object({
     name     = string
     location = string
@@ -21,7 +21,7 @@ variable "nsg_name" {
 
 # Variable : For tags
 variable "tags" {
-  type = map(any)
+  type = map(string)
   default = {
     Name        = "LT-SG"
     Environment = "Dev"

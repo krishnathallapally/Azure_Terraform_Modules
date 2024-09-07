@@ -1,8 +1,8 @@
 # Module : For Network Security Group 
-module "Network_Security_Group" {
+module "network_security_group" {
   source = "..//.."
 
-  rg_Security_Group = {
+  rg_security_group = {
     name     = "az-SG-01"
     location = "Central India"
   }
@@ -18,8 +18,7 @@ module "Network_Security_Group" {
       destination_port_range     = "22"
       source_address_prefix      = "*"
       destination_address_prefix = "*"
-    },
-    {
+    },{
       name                       = "all_traffic"
       priority                   = 900
       direction                  = "Inbound"
@@ -30,9 +29,5 @@ module "Network_Security_Group" {
       source_address_prefix      = "*"
       destination_address_prefix = "*"
     }
-
-
   ]
-
-
 }

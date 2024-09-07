@@ -1,5 +1,5 @@
 # Create Network Security Group to any Network Security Group Rules 
-resource "azurerm_network_security_group" "azure_network_security_group" {
+resource "azurerm_network_security_group" "security_group" {
   name                = var.nsg_name
   location            = var.rg_Security_Group.location
   resource_group_name = var.rg_Security_Group.name
@@ -22,7 +22,7 @@ resource "azurerm_network_security_rule" "az_nsg_rules" {
   source_address_prefix       = var.nsg_rules[count.index].source_address_prefix
   destination_address_prefix  = var.nsg_rules[count.index].destination_address_prefix
   resource_group_name         = var.rg_Security_Group.name
-  network_security_group_name = azurerm_network_security_group.azure_network_security_group.name
-  depends_on                  = [azurerm_resource_group.azure_resource_group, azurerm_network_security_group.azure_network_security_group]
+  network_security_group_name = azurerm_network_security_group.security_group.name
+  depends_on                  = [azurerm_resource_group.azure_resource_group, azurerm_network_security_group.security_group]
 
 }
