@@ -1,0 +1,4 @@
+variable "subscriptionid" {
+  type    = string
+ 
+}
